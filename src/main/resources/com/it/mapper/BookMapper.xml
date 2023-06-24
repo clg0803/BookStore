@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.it.mapper.BookMapper">
+    <insert id="saveBook" parameterType="com.it.bean.Book">
+        insert into books values ( null,#{bookName},#{author},#{price},#{sales},#{stock},#{imgPath} );
+    </insert>
+    <update id="upDateBook" parameterType="com.it.bean.Book">
+
+        update books set title=#{bookName},author=#{author},price=#{price},sales=#{sales},stock=#{stock},img_Path=#{imgPath} where id=#{id};
+
+    </update>
+    <delete id="deleteBook" parameterType="com.it.bean.Book">
+        delete from books where id=#{id};
+    </delete>
+    <select id="findAllBook" resultType="com.it.bean.Book">
+        select id ,title bookName,author,price,sales,stock,img_path imgPath from books;
+    </select>
+    <select id="findBookById" resultType="com.it.bean.Book">
+        select id ,title bookName,author,price,sales,stock,img_path imgPath from books where id=#{id};
+    </select>
+</mapper>

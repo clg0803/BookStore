@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <base th:href="@{/}">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+<div class="box" id="app">
+
+    <h2>Login</h2>
+    <form action="loginServlet" method="post" id="form">
+    <div class="input_box">
+        <label>账号</label>
+        <input name="username" type="text" v-model="usernameu">
+    </div>
+    <div class="input_box">
+        <label>密码</label>
+        <input name="password" type="password" v-model="passwordu">
+    </div>
+    <div class="btn_box">
+        <a href="#">忘记密码?</a>
+        <div>
+            <!--<button>登录</button>-->
+            <input type="submit" value="登录" @click="c">
+            <!--<input type="submit"  value="注册">-->
+            <button type="button" onclick="window.location.href='user?flag=toRegisterPage'">注册</button>
+
+
+        </div>
+    </div>
+    </form>
+</div>
+<script>
+    new Vue(
+        {
+            el:"#app",
+            data:{
+                    usernameu:"",
+                    passwordu:""
+            },
+            methods:{
+                c:function (){
+
+                    if(this.usernameu==""){
+                        alert("用户名不能为空");
+                        event.preventDefault();
+                    }else if(this.passwordu==""){
+                        alert("密码不能为空");
+                        event.preventDefault();
+                    }
+
+                }
+            }
+        }
+    )
+</script>
+</body>
+</html>

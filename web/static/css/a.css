@@ -1,0 +1,10 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../img/5f72b14bafda316838e073a8d79b9285.gif") no-repeat;
+    background-size: cover;
+
+}
